@@ -67,11 +67,13 @@ function setGridState(grid) {
             pixel.style.backgroundColor = grid[y][x] ? 'blue' : 'white';
             gridContainer.appendChild(pixel);
             pixels.push(pixel);
-    }}
+        }
+    }
 }
 
 ws.addChangeListener((event) => {
     if (supportedEvents.has(event.type)) {
+        console.log(Blockly.Python);
         const code = pythonGenerator.workspaceToCode(ws);
         updateGridWithCode(code);
         redrawGrid();

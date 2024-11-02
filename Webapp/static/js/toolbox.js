@@ -102,20 +102,40 @@ const toolbox = {
   ]
 }
 
+// Blockly.Blocks['pixel_set'] = {
+//   init: function() {
+//       this.appendDummyInput()
+//           .appendField("set pixel at")
+//           .appendField(new Blockly.FieldNumber(0, 0), "X")
+//           .appendField(new Blockly.FieldNumber(0, 0), "Y")
+//           .appendField("on")
+//           .appendField(new Blockly.FieldCheckbox("on"), "on");
+//       this.setPreviousStatement(true);
+//       this.setNextStatement(true);
+//       this.setColour(160);
+//       this.setTooltip('');
+//       this.setHelpUrl('');
+//   }
+// };
 Blockly.Blocks['pixel_set'] = {
   init: function() {
-      this.appendDummyInput()
-          .appendField("set pixel at")
-          .appendField(new Blockly.FieldNumber(0, 0), "X")
-          .appendField(new Blockly.FieldNumber(0, 0), "Y")
-          .appendField("on")
-          .appendField(new Blockly.FieldCheckbox("on"), "on");
-      this.setPreviousStatement(true);
-      this.setNextStatement(true);
-      this.setColour(160);
-      this.setTooltip('');
-      this.setHelpUrl('');
+    this.setColour(160);
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldLabel('Set Pixel'));
+    this.appendValueInput('X')
+        .setCheck('Number')
+        .appendField('X');
+    this.appendValueInput('Y')
+        .setCheck('Number')
+        .appendField('Y');
+    this.appendValueInput('on')
+        .setCheck('Boolean')
+        .appendField('on')
+    this.setNextStatement(true);
+    this.setPreviousStatement(true);
+    this
   }
-};
+}
+
 
 export default toolbox;

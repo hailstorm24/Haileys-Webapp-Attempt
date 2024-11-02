@@ -1,11 +1,9 @@
-const pythonGenerator = new Blockly.Generator('Python');
+const pythonGenerator = Blockly.Python
 
-pythonGenerator.ORDER_ATOMIC = 0;
-
-pythonGenerator.forBlock['pixel_set'] = function(block) {
-    const x = block.getFieldValue('X');
-    const y = block.getFieldValue('Y');
-    const on = block.getFieldValue('on');
+pythonGenerator.forBlock['pixel_set'] = function(block, generator) {
+    const x = generator.valueToCode(block, 'X', generator.ORDER_NONE) || '0';
+    const y = generator.valueToCode(block, 'Y', generator.ORDER_NONE) || '0';
+    const on = generator.valueToCode(block, 'on', generator.ORDER_NONE) || '0';
     const code = `set_pixel(${x}, ${y}, '${on}')\n`;
     return code;
 };
