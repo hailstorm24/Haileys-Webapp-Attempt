@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+
+    <link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1>WebApp</h1>
+    <div>
+        <div id="gridContainer" style="display: grid; grid-template-columns: repeat(256, 5px);"></div>
+        <div id="blocklyDiv" style="height: 60vh; width: 75vw;"></div>  
+    </div>
+    
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly/python_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/msg/en.js"></script>
+    
+    <script type="module" src="./static/js/toolbox.js"></script>
+    <script type="module" src="./static/js/run-blockly.js"></script>
+</body>
+</html>
